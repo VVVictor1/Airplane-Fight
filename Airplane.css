@@ -1,0 +1,20 @@
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.btn.Restart {
+    background-color: rgb(133, 126, 243);
+    width: 170px;
+    height: 70px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
