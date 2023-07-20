@@ -92,7 +92,7 @@ class Component{
         }
     }
 
-    creashWith(obstacle){
+    crashWith(obstacle){
         let airplaneLeft = this.x;
         let airplaneRight = this.x + this.width;
         let airplaneTop = this.y;
@@ -115,11 +115,11 @@ function handleDirection(){
     myAirplane.speedY = 0;
     myAirplane.speedX = 0;
 
-  if (keys[37] && myAirplane.x > 0 ){ // right arrow
+  if (keys[37] && myAirplane.x > 0 ){ // left arrow
      myAirplane.speedX = -1 * airplaneSpeed;
   }if(keys[38] && myAirplane.y > 0){ // top arrow
         myAirplane.speedY = -1 * airplaneSpeed;
-  }if(keys[39] && myAirplane.width + myAirplane.x < gameArea.canvas.width){  // left arrow
+  }if(keys[39] && myAirplane.width + myAirplane.x < gameArea.canvas.width){  // right arrow
       myAirplane.speedX = 1 * airplaneSpeed;
   }if(keys[40] && myAirplane.y + myAirplane.height < gameArea.canvas.height){ // bottom arrow
        myAirplane.speedY = 1 * airplaneSpeed;
@@ -195,7 +195,7 @@ function updateGameArea(){
         myObstacles[i].Draw();
 
         for (let z = 0; z < myBullets.length; ++z){
-            if(myBullets[z].creashWith(myObstacles[i])){
+            if(myBullets[z].crashWith(myObstacles[i])){
             myBullets.splice(z,1);
             myObstacles.splice(i,1);
             --i;
@@ -204,7 +204,7 @@ function updateGameArea(){
             }
         }
 
-        if(myAirplane.creashWith(myObstacles[i])) {
+        if(myAirplane.crashWith(myObstacles[i])) {
           gameArea.stop();
           restartGame();
           return;
